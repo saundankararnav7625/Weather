@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-sky="default">
+  <main>
+    
+    <form id="search-form">
+      <label for="city" class="visually-hidden">City name</label>
+      <input id="city" type="text" placeholder="Search for a city" autocomplete="off" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <p id="message" role="status">Enter a city to see its weather.</p>
+
+    <section id="result" hidden>
+      <h1 id="place"></h1>
+      <p id="condition"></p>
+      <p id="temp"></p>
+
+      <dl>
+        <div><dt>Feels like</dt><dd id="feels"></dd></div>
+        <div><dt>High / Low</dt><dd id="range"></dd></div>
+        <div><dt>Humidity</dt><dd id="humidity"></dd></div>
+        <div><dt>Wind</dt><dd id="wind"></dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
