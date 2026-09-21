@@ -1,0 +1,111 @@
+/* The background colours change with the weather.
+   script.js sets data-sky on <body>, and these rules react to it. */
+body {
+  --sky-top: #2b3a4a;
+  --sky-bottom: #4a6076;
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: #fff;
+  background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom)) fixed;
+  transition: background 0.6s;
+}
+
+body[data-sky="clear"] { --sky-top: #1a5f9e; --sky-bottom: #3b8ac4; }
+body[data-sky="cloudy"] { --sky-top: #4d5762; --sky-bottom: #7b8794; }
+body[data-sky="rain"] { --sky-top: #2c3e50; --sky-bottom: #4b6178; }
+body[data-sky="snow"] { --sky-top: #4f637a; --sky-bottom: #8497ad; }
+body[data-sky="storm"] { --sky-top: #1f1b33; --sky-bottom: #48406b; }
+body[data-sky="fog"] { --sky-top: #525b62; --sky-bottom: #7e878e; }
+
+main {
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input,
+button {
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+input::placeholder { color: rgba(255, 255, 255, 0.75); }
+
+button {
+  color: #17212b;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; cursor: wait; }
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+#message {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+}
+
+#result { margin-top: 2rem; }
+
+h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+#condition {
+  margin: 0.25rem 0 0;
+  font-size: 1.15rem;
+}
+
+#temp {
+  margin: 0.5rem 0 1.5rem;
+  font-size: clamp(5rem, 24vw, 8rem);
+  font-weight: 300;
+  line-height: 1;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 1rem;
+  margin: 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+dt { font-size: 0.9rem; opacity: 0.85; }
+dd { margin: 0.15rem 0 0; font-size: 1.25rem; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body { transition: none; }
+}
