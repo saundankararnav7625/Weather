@@ -30,5 +30,5 @@ Built with plain HTML, CSS, and JavaScript. Weather data comes from [Open-Meteo]
 
 ## Live demo
 
-github.com/saundankararnav7625
+https://github.com/saundankararnav7625
 
